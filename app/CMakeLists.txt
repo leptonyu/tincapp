@@ -54,8 +54,8 @@ ExternalProject_Add(libressl
 
 ExternalProject_Add(tinc
   DEPENDS           lzo libressl
-  URL               https://github.com/gsliepen/tinc/archive/f5223937e62e1cc5e9b3d322490dd3af8d666750.tar.gz
-  URL_HASH          SHA256=3fe923e8fbb1e0192986039e91d6945ffbbe326ee8c2c0a13bacf80e87dad4a9
+  URL               https://github.com/leptonyu/tinc/releases/download/1.1pre17-36-gf46d99f/tinc-1.1pre17-36-gf46d99f.tar.gz 
+  URL_HASH          SHA256=56db0d44d02ee5d42f0eaa3238c39f98bf04eb81d5056447acc8add422656d82
   CONFIGURE_COMMAND autoreconf -fsi <SOURCE_DIR> &&
                     <SOURCE_DIR>/configure ${xCONFIG}
                       --with-openssl=${CMAKE_CURRENT_BINARY_DIR}/usr/local
