@@ -1,0 +1,21 @@
+language: android
+dist: trusty
+jdk: oraclejdk8
+android:
+  components:
+    - android-29
+    - build-tools-29.0.2
+    - platform-tools
+    - tools
+    - extra-google-m2repository
+    - extra-android-m2repository
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+before_install:
+  - echo y | sdkmanager 'ndk-bundle'
+  - echo y | sdkmanager "ndk;20.1.5948944"
+  - echo y | sdkmanager "platforms;android-29"
+script: 
+  - ./gradlew build

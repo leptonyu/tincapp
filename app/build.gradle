@@ -21,13 +21,13 @@ plugins {
   id 'kotlin-android'
   id 'kotlin-android-extensions'
   id 'kotlin-kapt'
-  id 'com.github.triplet.play' version '2.1.0'
+//  id 'com.github.triplet.play' version '2.1.0'
 }
 
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreAvailable = keystorePropertiesFile.exists()
-def keystoreProperties = new Properties()
-if (keystoreAvailable) keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+//def keystorePropertiesFile = rootProject.file("keystore.properties")
+//def keystoreAvailable = keystorePropertiesFile.exists()
+//def keystoreProperties = new Properties()
+//if (keystoreAvailable) keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
   compileSdkVersion 29
@@ -44,18 +44,18 @@ android {
     }
   }
 
-  if (keystoreAvailable) signingConfigs {
-    release {
-      keyAlias keystoreProperties['keyAlias']
-      keyPassword keystoreProperties['keyPassword']
-      storeFile file(keystoreProperties['storeFile'])
-      storePassword keystoreProperties['storePassword']
-    }
-  }
+  // if (keystoreAvailable) signingConfigs {
+  //   release {
+  //     keyAlias keystoreProperties['keyAlias']
+  //     keyPassword keystoreProperties['keyPassword']
+  //     storeFile file(keystoreProperties['storeFile'])
+  //     storePassword keystoreProperties['storePassword']
+  //   }
+  // }
 
   buildTypes {
     release {
-      if (keystoreAvailable) signingConfig signingConfigs.release
+      // if (keystoreAvailable) signingConfig signingConfigs.release
       minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
@@ -95,8 +95,8 @@ repositories {
   google()
 }
 
-play {
-  if (keystoreAvailable) serviceAccountCredentials = file(keystoreProperties['apiKeyFile'])
-  track = 'beta'
-  resolutionStrategy = "auto"
-}
+// play {
+//   if (keystoreAvailable) serviceAccountCredentials = file(keystoreProperties['apiKeyFile'])
+//   track = 'beta'
+//   resolutionStrategy = "auto"
+// }
